@@ -13,9 +13,11 @@ This is a coding exercise (kata) designed to practice small algorithms like conv
 
 ## Description of the Solution:
 
-Each branch contains a solution to this problem.
+This is a very old implementation of this solution using the standards and best practices from 2016
 
-- **Master**. At the moment, it contains a very old solution provided using Java8 with an old Spring Test solution using jUnit.
+- Java 8
+- Spring Test 2.5
+- jUnit 4.8
 
 ### License:
 This project is licensed under the MIT License.
