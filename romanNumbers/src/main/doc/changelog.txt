@@ -1,1 +1,0 @@
-v01.00 - Initial implementation, spring framework v2.5
