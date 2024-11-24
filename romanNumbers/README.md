@@ -19,7 +19,7 @@ This is a coding exercise (kata) designed to practice small algorithms like conv
 
 Each branch contains a solution to this problem.
 
-- **Master**. At the moment, it contains **kata-romanNumbers-java8SpringTest2.5**.
+- **Master**. At the moment, it contains **kata-romanNumbers-java23jUnit5**.
 - **kata-romanNumbers-java8SpringTest2.5**. Solution from 2016 using Java8 with a Spring Test 2.5.
 - **kata-romanNumbers-java23jUnit5**. Maven solution from 2024 using Java23 with jUnit5.
 
