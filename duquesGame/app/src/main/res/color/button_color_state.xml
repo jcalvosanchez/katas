@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/green_frog" android:state_enabled="false"/> <!-- Color cuando está deshabilitado -->
+    <item android:color="@color/stone_villamayor"/> <!-- Color cuando está habilitado -->
+</selector>

@@ -22,6 +22,7 @@ Each branch contains a solution to this problem.
 
 - **master**. It contains the description of the kata.
 - **kata-duquesGame-java8**. Solution from 2024 using Java8.
+- **kata-duquesGame-android7**. Solution from 2025 using Android7.
 
 ## License:
 This project is licensed under the MIT License.

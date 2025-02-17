@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DuquesGame</string>
+    <string name="juego_del_duque">Juego del Duque</string>
+    <string name="ver_reglas_del_juego">Ver reglas del juego</string>
+</resources>
