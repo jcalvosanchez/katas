@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/header_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="@color/silver_charro"
+    android:background="@color/game_text_background"
+    android:elevation="16dp"
     android:padding="16dp"
-    android:layout_alignParentTop="true">
+    android:gravity="center_vertical">
+
+<!--    <ImageView-->
+<!--        android:id="@+id/game_icon"-->
+<!--        android:layout_width="32dp"-->
+<!--        android:layout_height="32dp"-->
+<!--        android:src="@drawable/ic_game_icon"-->
+<!--        android:contentDescription="@string/icono_juego"-->
+<!--        app:tint="@color/dark_neutral"-->
+<!--        android:layout_marginEnd="8dp"/>-->
 
     <TextView
         android:id="@+id/game_tile"
@@ -16,7 +27,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="@string/juego_del_duque"
-        android:textColor="@color/dark_neutral"
+        android:textColor="@color/game_text"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -27,6 +38,8 @@
         android:background="@null"
         android:contentDescription="@string/ver_reglas_del_juego"
         android:onClick="showRules"
-        android:src="@drawable/baseline_live_help_24" />
+        android:src="@drawable/baseline_live_help_24"
+        app:tint="@color/game_text"
+        android:layout_marginStart="8dp"/>
 
 </LinearLayout>

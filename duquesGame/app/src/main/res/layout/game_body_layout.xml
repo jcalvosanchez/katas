@@ -138,7 +138,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:stretchColumns="0"
-        android:background="#EFEFEF"
+        android:background="@color/game_text_background"
         android:layout_marginTop="16dp">
 
     <!-- Encabezado -->
@@ -150,6 +150,7 @@
                 android:layout_marginTop="16dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:textColor="@color/game_text"
                 android:textAlignment="center"/>
         </TableRow>
         <TableRow>
@@ -158,28 +159,36 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Intento"
+                android:textAlignment="center"
                 android:padding="8dp"
+                android:textColor="@color/game_text"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="Número"
+                android:textAlignment="center"
                 android:padding="8dp"
+                android:textColor="@color/game_text"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Muertos"
+                android:textAlignment="center"
                 android:padding="8dp"
+                android:textColor="@color/game_text"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
                 android:text="Heridos"
                 android:padding="8dp"
+                android:textColor="@color/game_text"
                 android:textStyle="bold" />
         </TableRow>
 

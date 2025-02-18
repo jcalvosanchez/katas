@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/silver_charro"
+    android:background="@color/game_text_background"
     android:padding="8dp">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="HTIC 2025"
-        android:textColor="@color/green_frog"
+        android:textColor="@color/game_text"
         android:textSize="16sp"
         android:textStyle="italic" />
 </LinearLayout>

@@ -7,4 +7,6 @@
     <color name="green_quercus">#355e3b</color>
     <color name="silver_charro">#c0c0c0</color>
     <color name="dark_neutral">#2f2f2f</color>
+    <color name="game_text_background">#E0F7FA</color>
+    <color name="game_text">#00796B</color>
 </resources>

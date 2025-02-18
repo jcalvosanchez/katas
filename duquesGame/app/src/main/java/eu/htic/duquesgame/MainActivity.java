@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         TextView txtIntento = new TextView(this);
         txtIntento.setText(String.valueOf(intento));
         txtIntento.setPadding(8, 8, 8, 8);
-        txtIntento.setGravity(Gravity.CENTER_VERTICAL);
+        txtIntento.setGravity(Gravity.CENTER);
         TableRow.LayoutParams paramsIntento = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 3);
         txtIntento.setLayoutParams(paramsIntento);
 
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
         TextView txtNumero = new TextView(this);
         txtNumero.setText(numero);
         txtNumero.setPadding(8, 8, 8, 8);
-        txtNumero.setGravity(Gravity.CENTER_VERTICAL);
+        txtNumero.setGravity(Gravity.CENTER);
         TableRow.LayoutParams paramsNumero = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 2);
         txtNumero.setLayoutParams(paramsNumero);
 
