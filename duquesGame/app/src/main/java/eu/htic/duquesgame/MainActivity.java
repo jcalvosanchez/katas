@@ -1,11 +1,15 @@
 package eu.htic.duquesgame;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -63,6 +67,16 @@ public class MainActivity extends AppCompatActivity {
         btn9 = findViewById(R.id.btn_9);
         btn0 = findViewById(R.id.btn_0);
         botonesNumericos = List.of(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0);
+
+        TextView gameTitle = findViewById(R.id.game_title);
+        gameTitle.setScaleX(0);
+        gameTitle.setScaleY(0);
+        gameTitle.animate()
+                .scaleX(1)
+                .scaleY(1)
+                .setDuration(4000)
+                .setInterpolator(new AccelerateDecelerateInterpolator())
+                .start();
 
         startNewGame();
 
