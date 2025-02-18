@@ -78,6 +78,13 @@ public class MainActivity extends AppCompatActivity {
                 .setInterpolator(new AccelerateDecelerateInterpolator())
                 .start();
 
+        ImageView gameIcon = findViewById(R.id.helpButton);
+        ObjectAnimator bounceAnim = ObjectAnimator.ofFloat(gameIcon, "translationY", 0, -10, 0);
+        bounceAnim.setDuration(1000);
+        bounceAnim.setRepeatMode(ValueAnimator.REVERSE);
+        bounceAnim.setRepeatCount(4);
+        bounceAnim.start();
+
         startNewGame();
 
         for (Button boton : botonesNumericos) {
