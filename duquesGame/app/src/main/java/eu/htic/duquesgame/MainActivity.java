@@ -1,9 +1,11 @@
 package eu.htic.duquesgame;
 
+import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -18,8 +20,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import eu.htic.duquesgame.model.DuquesGame;
 import eu.htic.duquesgame.model.GuessResult;
@@ -46,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
     private List<Button> botonesNumericos;
 
     private List<Button> botonesDeshabilitados;
+
+    private View gameBodyLayout;
+    private ValueAnimator colorAnimator;
+    private final Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
         bounceAnim.setRepeatMode(ValueAnimator.REVERSE);
         bounceAnim.setRepeatCount(4);
         bounceAnim.start();
+
+        gameBodyLayout = findViewById(R.id.game_body);
+
+        startLavaLampAnimation();
 
         startNewGame();
 
@@ -145,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
                 agregarResultado(game.getNumbersTried().size(), numeroEnviado, guessResult.getKills(), guessResult.getWounds());
 
                 if (guessResult.playerWon()) {
+                    stopBackgroundColorAnimation();
                     mostrarMensajeVictoria();
                 } else {
                     btnEnviar.setEnabled(false);
@@ -245,5 +256,51 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
                 .show();
+    }
+
+    private void startLavaLampAnimation() {
+        int colorStart = getRandomLavaColor();
+        int colorEnd = getRandomLavaColor();
+        int duration = 12000 + + random.nextInt(6000);
+
+        colorAnimator = ObjectAnimator.ofObject(gameBodyLayout, "backgroundColor",
+                new ArgbEvaluator(), colorStart, colorEnd);
+
+        colorAnimator.setDuration(duration);
+        colorAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        colorAnimator.setRepeatCount(ValueAnimator.INFINITE);
+
+        colorAnimator.start();
+    }
+
+    private void stopBackgroundColorAnimation() {
+        if (colorAnimator != null) {
+            colorAnimator.cancel();
+        }
+    }
+
+    private int getRandomLavaColor() {
+        int[] lavaColors = {
+                Color.parseColor("#FFDDC1"), // Melocotón suave
+                Color.parseColor("#FFD1DC"), // Rosa pastel
+                Color.parseColor("#C1E1FF"), // Azul cielo claro
+                Color.parseColor("#D4C1FF"), // Lavanda suave
+                Color.parseColor("#B6E2D3"), // Verde menta
+                Color.parseColor("#FFFACD")  // Amarillo vainilla
+        };
+
+        return lavaColors[random.nextInt(lavaColors.length)];
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopBackgroundColorAnimation();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startLavaLampAnimation();
     }
 }
