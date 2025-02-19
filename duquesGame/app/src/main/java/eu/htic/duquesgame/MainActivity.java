@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import eu.htic.duquesgame.animations.ConfettiEffect;
 import eu.htic.duquesgame.model.DuquesGame;
 import eu.htic.duquesgame.model.GuessResult;
 
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private View gameBodyLayout;
     private ValueAnimator colorAnimator;
     private final Random random = new Random();
+    private ConfettiEffect confettiEffect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
         bounceAnim.start();
 
         gameBodyLayout = findViewById(R.id.game_body);
+
+        confettiEffect = new ConfettiEffect(this, (LinearLayout) gameBodyLayout);
 
         startLavaLampAnimation();
 
@@ -155,8 +160,7 @@ public class MainActivity extends AppCompatActivity {
                 agregarResultado(game.getNumbersTried().size(), numeroEnviado, guessResult.getKills(), guessResult.getWounds());
 
                 if (guessResult.playerWon()) {
-                    stopBackgroundColorAnimation();
-                    mostrarMensajeVictoria();
+                    onPlayerWins();
                 } else {
                     btnEnviar.setEnabled(false);
                 }
@@ -166,7 +170,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void mostrarMensajeVictoria() {
+    private void showVictoryAnimation() {
+        confettiEffect.startConfetti();
+    }
+    private void showVictoryDialog() {
         new AlertDialog.Builder(this)
                 .setTitle("¡Victoria!")
                 .setMessage("¡Felicidades! Has adivinado el número correctamente en " + game.getNumbersTried().size() + " intentos.")
@@ -290,6 +297,12 @@ public class MainActivity extends AppCompatActivity {
         };
 
         return lavaColors[random.nextInt(lavaColors.length)];
+    }
+
+    private void onPlayerWins() {
+        stopBackgroundColorAnimation();
+        showVictoryAnimation();
+        showVictoryDialog();
     }
 
     @Override
