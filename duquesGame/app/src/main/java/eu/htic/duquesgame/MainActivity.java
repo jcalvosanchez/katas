@@ -173,13 +173,16 @@ public class MainActivity extends AppCompatActivity {
     private void showVictoryAnimation() {
         confettiEffect.startConfetti();
     }
-    private void showVictoryDialog() {
-        new AlertDialog.Builder(this)
-                .setTitle("¡Victoria!")
-                .setMessage("¡Felicidades! Has adivinado el número correctamente en " + game.getNumbersTried().size() + " intentos.")
-                .setPositiveButton("Jugar de nuevo", (dialog, which) -> startNewGame())
-                .setNegativeButton("Salir", (dialog, which) -> finish())
-                .show();
+    private void showVictoryOverlay() {
+        LinearLayout victoryOverlay = findViewById(R.id.vicoryOverlay);
+        Button restartButton = findViewById(R.id.restartGameButton);
+
+        restartButton.setOnClickListener(v -> {
+            victoryOverlay.setVisibility(View.GONE);
+            startNewGame();
+        });
+
+        victoryOverlay.setVisibility(View.VISIBLE);
     }
 
     private void startNewGame() {
@@ -302,7 +305,7 @@ public class MainActivity extends AppCompatActivity {
     private void onPlayerWins() {
         stopBackgroundColorAnimation();
         showVictoryAnimation();
-        showVictoryDialog();
+        showVictoryOverlay();
     }
 
     @Override
