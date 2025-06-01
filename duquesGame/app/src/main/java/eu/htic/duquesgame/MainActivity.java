@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -243,33 +244,37 @@ public class MainActivity extends AppCompatActivity {
         // Configurar la primera columna (Intento)
         TextView txtIntento = new TextView(this);
         txtIntento.setText(String.valueOf(intento));
+        txtIntento.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
         txtIntento.setPadding(8, 8, 8, 8);
         txtIntento.setGravity(Gravity.CENTER);
-        TableRow.LayoutParams paramsIntento = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 3);
+        TableRow.LayoutParams paramsIntento = new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1);
         txtIntento.setLayoutParams(paramsIntento);
 
         // Configurar la segunda columna (Número)
         TextView txtNumero = new TextView(this);
         txtNumero.setText(numero);
+        txtNumero.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
         txtNumero.setPadding(8, 8, 8, 8);
         txtNumero.setGravity(Gravity.CENTER);
-        TableRow.LayoutParams paramsNumero = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 2);
+        TableRow.LayoutParams paramsNumero = new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 2);
         txtNumero.setLayoutParams(paramsNumero);
 
         // Configurar la tercera columna (Muertos)
         TextView txtMuertos = new TextView(this);
         txtMuertos.setText(String.valueOf(muertos));
+        txtMuertos.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
         txtMuertos.setPadding(8, 8, 8, 8);
         txtMuertos.setGravity(Gravity.CENTER);
-        TableRow.LayoutParams paramsMuertos = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1);
+        TableRow.LayoutParams paramsMuertos = new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1);
         txtMuertos.setLayoutParams(paramsMuertos);
 
         // Configurar la cuarta columna (Heridos)
         TextView txtHeridos = new TextView(this);
         txtHeridos.setText(String.valueOf(heridos));
+        txtHeridos.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
         txtHeridos.setPadding(8, 8, 8, 8);
         txtHeridos.setGravity(Gravity.CENTER);
-        TableRow.LayoutParams paramsHeridos = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1);
+        TableRow.LayoutParams paramsHeridos = new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1);
         txtHeridos.setLayoutParams(paramsHeridos);
 
         // Agregar columnas a la fila

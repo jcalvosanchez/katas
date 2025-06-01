@@ -26,12 +26,14 @@
             android:id="@+id/btn_borrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="24sp"
             android:text="Borrar" />
         <!-- Botón para enviar el número -->
         <Button
             android:id="@+id/btn_enviar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="24sp"
             android:text="Enviar Número" />
     </LinearLayout>
 
@@ -50,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="1"
+            android:textSize="32sp"
             android:textColor="@color/button_color_state" />
 
         <Button
@@ -58,6 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="2"
+            android:textSize="32sp"
             android:textColor="@color/button_color_state" />
 
         <Button
@@ -66,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="3"
+            android:textSize="32sp"
             android:textColor="@color/button_color_state" />
 
         <Button
@@ -74,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="4"
+            android:textSize="32sp"
             android:textColor="@color/button_color_state" />
 
         <Button
@@ -82,6 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="5"
+            android:textSize="32sp"
             android:textColor="@color/button_color_state" />
 
         <Button
@@ -90,6 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="6"
+            android:textSize="32sp"
             android:textColor="@color/button_color_state" />
 
         <Button
@@ -98,6 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="7"
+            android:textSize="32sp"
             android:textColor="@color/button_color_state" />
 
         <Button
@@ -106,6 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="8"
+            android:textSize="32sp"
             android:textColor="@color/button_color_state" />
 
         <Button
@@ -114,6 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="9"
+            android:textSize="32sp"
             android:textColor="@color/button_color_state" />
 
         <Space
@@ -126,6 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:text="0"
+            android:textSize="32sp"
             android:textColor="@color/button_color_state" />
         <Space
             android:layout_width="0dp"
@@ -149,7 +161,7 @@
                 android:layout_height="match_parent"
                 android:text="Historial de números enviados"
                 android:layout_marginTop="16dp"
-                android:textSize="16sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="@color/game_text"
                 android:textAlignment="center"/>
@@ -160,6 +172,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Intento"
+                android:textSize="24sp"
                 android:textAlignment="center"
                 android:padding="8dp"
                 android:textColor="@color/game_text"
@@ -169,6 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="Número"
+                android:textSize="24sp"
                 android:textAlignment="center"
                 android:padding="8dp"
                 android:textColor="@color/game_text"
@@ -178,6 +192,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Muertos"
+                android:textSize="24sp"
                 android:textAlignment="center"
                 android:padding="8dp"
                 android:textColor="@color/game_text"
@@ -188,6 +203,7 @@
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:text="Heridos"
+                android:textSize="24sp"
                 android:padding="8dp"
                 android:textColor="@color/game_text"
                 android:textStyle="bold" />
