@@ -1,9 +1,9 @@
 package eu.htic.duquesgame.animations;
+
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Color;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -13,6 +13,7 @@ import java.util.Random;
 import eu.htic.duquesgame.R;
 
 public class ConfettiEffect {
+
     private final Context context;
     private final LinearLayout container;
     private static final int CONFETTI_COUNT = 300;
@@ -24,22 +25,29 @@ public class ConfettiEffect {
     }
 
     public void startConfetti() {
-        Random random = new Random();
-        for (int i = 0; i < CONFETTI_COUNT; i++) {
-            ImageView confetti = new ImageView(context);
-            confetti.setImageResource(R.drawable.confetti_shape);
-            confetti.setLayoutParams(new FrameLayout.LayoutParams(80, 80));
-            confetti.setColorFilter(getRandomColor(random));
+        container.post(() -> {
+            Random random = new Random();
+            int containerWidth = container.getWidth();
+            int containerHeight = container.getHeight();
 
-            int startX = random.nextInt(container.getWidth());
-            int startY = random.nextInt(container.getHeight() / 2);
-            confetti.setX(startX);
-            confetti.setY(startY);
+            if (containerWidth <= 0 || containerHeight <= 0) return; // Evitar errores
 
-            container.addView(confetti);
+            for (int i = 0; i < CONFETTI_COUNT; i++) {
+                ImageView confetti = new ImageView(context);
+                confetti.setImageResource(R.drawable.confetti_shape);
+                confetti.setLayoutParams(new FrameLayout.LayoutParams(80, 80));
+                confetti.setColorFilter(getRandomColor(random));
 
-            animateConfetti(confetti);
-        }
+                int startX = random.nextInt(containerWidth);
+                int startY = random.nextInt(containerHeight / 2);
+                confetti.setX(startX);
+                confetti.setY(startY);
+
+                container.addView(confetti);
+
+                animateConfetti(confetti);
+            }
+        });
     }
 
     private void animateConfetti(ImageView confetti) {

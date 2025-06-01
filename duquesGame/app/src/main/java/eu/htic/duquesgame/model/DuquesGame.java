@@ -1,5 +1,7 @@
 package eu.htic.duquesgame.model;
 
+import androidx.annotation.NonNull;
+
 import java.util.*;
 
 public class DuquesGame {
@@ -20,6 +22,12 @@ public class DuquesGame {
         DuquesNumber playerGuess = new DuquesNumber(playerGuessAsString);
 
         numbersTried.add(playerGuess);
+
+        return getGuessResult(playerGuess);
+    }
+
+    @NonNull
+    public GuessResult getGuessResult(DuquesNumber playerGuess) {
         int kills = 0;
         int wounds = 0;
 

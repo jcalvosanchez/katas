@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,8 @@ import java.util.Random;
 
 import eu.htic.duquesgame.animations.ConfettiEffect;
 import eu.htic.duquesgame.model.DuquesGame;
+import eu.htic.duquesgame.model.DuquesGameViewModel;
+import eu.htic.duquesgame.model.DuquesNumber;
 import eu.htic.duquesgame.model.GuessResult;
 
 public class MainActivity extends AppCompatActivity {
@@ -77,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
         btn0 = findViewById(R.id.btn_0);
         botonesNumericos = List.of(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0);
 
+        botonesDeshabilitados = new ArrayList<>();
+
         TextView gameTitle = findViewById(R.id.game_title);
         gameTitle.setScaleX(0);
         gameTitle.setScaleY(0);
@@ -97,10 +102,6 @@ public class MainActivity extends AppCompatActivity {
         gameBodyLayout = findViewById(R.id.game_body);
 
         confettiEffect = new ConfettiEffect(this, (LinearLayout) gameBodyLayout);
-
-        startLavaLampAnimation();
-
-        startNewGame();
 
         for (Button boton : botonesNumericos) {
             boton.setOnClickListener(v -> {
@@ -168,6 +169,36 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "El número debe tener 4 dígitos", Toast.LENGTH_SHORT).show();
             }
         });
+
+        startLavaLampAnimation();
+
+        DuquesGameViewModel duquesGameviewModel = new ViewModelProvider(this).get(DuquesGameViewModel.class);
+        if (duquesGameviewModel.getGame().getNumbersTried().isEmpty()) {
+            startNewGame();
+        } else {
+            resumeGame(duquesGameviewModel.getGame());
+        }
+    }
+
+    private void resumeGame(DuquesGame duquesGame) {
+        game = duquesGame;
+
+        // Mostrar intentos anteriores
+        List<DuquesNumber> intentosAnteriores = game.getNumbersTried();
+        int i = 1;
+        for (DuquesNumber intento : intentosAnteriores) {
+            GuessResult resultado = game.getGuessResult(intento);
+            agregarResultado(i, intento.getNumberAsString(), resultado.getKills(), resultado.getWounds());
+            i++;
+        }
+
+        // Si el último intento fue ganador, mostrar animaciones de victoria
+        if (!intentosAnteriores.isEmpty()) {
+            GuessResult ultimoResultado = game.getGuessResult(intentosAnteriores.get(intentosAnteriores.size() - 1));
+            if (ultimoResultado.playerWon()) {
+                onPlayerWins();
+            }
+        }
     }
 
     private void showVictoryAnimation() {
@@ -186,7 +217,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startNewGame() {
-        game = new DuquesGame();
+        DuquesGameViewModel duquesGameviewModel = new ViewModelProvider(this).get(DuquesGameViewModel.class);
+        duquesGameviewModel.startNewGame();
+        game = duquesGameviewModel.getGame();
         visor.setText("");
 
         botonesDeshabilitados = new ArrayList<>();
@@ -271,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
     private void startLavaLampAnimation() {
         int colorStart = getRandomLavaColor();
         int colorEnd = getRandomLavaColor();
-        int duration = 12000 + + random.nextInt(6000);
+        int duration = 12000 + random.nextInt(6000);
 
         colorAnimator = ObjectAnimator.ofObject(gameBodyLayout, "backgroundColor",
                 new ArgbEvaluator(), colorStart, colorEnd);
