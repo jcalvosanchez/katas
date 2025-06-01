@@ -26,14 +26,12 @@
             android:id="@+id/btn_borrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
             android:text="Borrar" />
         <!-- Botón para enviar el número -->
         <Button
             android:id="@+id/btn_enviar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
             android:text="Enviar Número" />
     </LinearLayout>
 
@@ -146,69 +144,77 @@
     </GridLayout>
 
     <!-- Historial de números enviados -->
-    <TableLayout
-        android:id="@+id/historial"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="0"
-        android:background="@color/game_text_background"
-        android:layout_marginTop="16dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
-    <!-- Encabezado -->
-        <TableRow>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Historial de números enviados"
-                android:layout_marginTop="16dp"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@color/game_text"
-                android:textAlignment="center"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Intento"
-                android:textSize="24sp"
-                android:textAlignment="center"
-                android:padding="8dp"
-                android:textColor="@color/game_text"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="Número"
-                android:textSize="24sp"
-                android:textAlignment="center"
-                android:padding="8dp"
-                android:textColor="@color/game_text"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Muertos"
-                android:textSize="24sp"
-                android:textAlignment="center"
-                android:padding="8dp"
-                android:textColor="@color/game_text"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAlignment="center"
-                android:text="Heridos"
-                android:textSize="24sp"
-                android:padding="8dp"
-                android:textColor="@color/game_text"
-                android:textStyle="bold" />
-        </TableRow>
+        <TableLayout
+            android:id="@+id/historial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0"
+            android:background="@color/game_text_background"
+            android:layout_marginTop="16dp">
 
-    </TableLayout>
+        <!-- Encabezado -->
+            <TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Historial de números enviados"
+                    android:layout_marginTop="16dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/game_text"
+                    android:textAlignment="center"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Intento"
+                    android:textSize="14sp"
+                    android:textAlignment="center"
+                    android:padding="8dp"
+                    android:textColor="@color/game_text"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Número"
+                    android:textSize="14sp"
+                    android:textAlignment="center"
+                    android:padding="8dp"
+                    android:textColor="@color/game_text"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Muertos"
+                    android:textSize="14sp"
+                    android:textAlignment="center"
+                    android:padding="8dp"
+                    android:textColor="@color/game_text"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:text="Heridos"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:textColor="@color/game_text"
+                    android:textStyle="bold" />
+            </TableRow>
+
+        </TableLayout>
+
+    </ScrollView>
 
 </LinearLayout>
